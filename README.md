@@ -17,7 +17,30 @@ Step 8:Handle any potential errors during the transcribing process. If the audio
 
 ## Program:
 
+```python
 
+import speech_recognition as sr
+file = "audio_file.wav"
+r = sr.Recognizer()
+
+try:
+    with sr.AudioFile(file) as source:
+         audio = r.record(source)
+    transcribed_text = r.recognize_google(audio)
+         print("Transcribed Text:")
+    print(transcribed_text)
+
+except sr.UnknownValueError:
+    print("Audio is not clear.")
+
+except sr.RequestError:
+    print("Couldn't get results from Google Speech Recognizer.")
+
+
+```
 ## Output:
 
+![image](https://github.com/Sugan2002/Implementation-of-Speech-Recognition-AI-5/assets/77089743/fd42b791-be6c-4a35-b388-058ad508487e)
+
 ## Result:
+     Thus, we've implemented speech recognition successfully.
